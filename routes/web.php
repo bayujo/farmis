@@ -1,9 +1,10 @@
 <?php
-  
+
+use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-  
-use App\Http\Controllers\HomeController;
-  
+use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,42 +15,30 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-  
-Route::get('/', function () {
-    return view('welcome');
-});
-  
-Auth::routes();
-  
-/*------------------------------------------
---------------------------------------------
-All Normal Users Routes List
---------------------------------------------
---------------------------------------------*/
-Route::middleware(['auth', 'user-access:user'])->group(function () {
-  
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-});
-  
-/*------------------------------------------
---------------------------------------------
-All Admin Routes List
---------------------------------------------
---------------------------------------------*/
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-});
-  
-/*------------------------------------------
---------------------------------------------
-All Admin Routes List
---------------------------------------------
---------------------------------------------*/
-Route::middleware(['auth', 'user-access:manager'])->group(function () {
-  
-    Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
-});
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
+
+    Route::get("/redirectAuthenticatedUsers", [RedirectAuthenticatedUsersController::class, "home"]);
+
+    Route::group(['middleware' => 'checkRole:admin'], function() {
+        Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
+    });
+    Route::group(['middleware' => 'checkRole:user'], function() {
+        Route::inertia('/userDashboard', 'UserDashboard')->name('userDashboard');
+    });
+    Route::group(['middleware' => 'checkRole:guest'], function() {
+        Route::inertia('/guestDashboard', 'GuestDashboard')->name('guestDashboard');
+    });
+});
+
+require __DIR__.'/auth.php';
