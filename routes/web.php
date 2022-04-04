@@ -1,10 +1,9 @@
 <?php
-
-use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
-use Illuminate\Foundation\Application;
+  
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-
+  
+use App\Http\Controllers\HomeController;
+  
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,30 +14,39 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+  
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('welcome');
 });
-
-Route::group(['middleware' => 'auth'], function() {
-    Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
-
-    Route::get("/redirectAuthenticatedUsers", [RedirectAuthenticatedUsersController::class, "home"]);
-
-    Route::group(['middleware' => 'checkRole:admin'], function() {
-        Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
-    });
-    Route::group(['middleware' => 'checkRole:user'], function() {
-        Route::inertia('/userDashboard', 'UserDashboard')->name('userDashboard');
-    });
-    Route::group(['middleware' => 'checkRole:guest'], function() {
-        Route::inertia('/guestDashboard', 'GuestDashboard')->name('guestDashboard');
-    });
+  
+Auth::routes();
+  
+/*------------------------------------------
+--------------------------------------------
+All Normal Users Routes List
+--------------------------------------------
+--------------------------------------------*/
+Route::middleware(['auth', 'user-access:user'])->group(function () {
+  
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
-
-require __DIR__.'/auth.php';
+  
+/*------------------------------------------
+--------------------------------------------
+All Admin Routes List
+--------------------------------------------
+--------------------------------------------*/
+Route::middleware(['auth', 'user-access:admin'])->group(function () {
+  
+    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+});
+  
+/*------------------------------------------
+--------------------------------------------
+All Admin Routes List
+--------------------------------------------
+--------------------------------------------*/
+Route::middleware(['auth', 'user-access:manager'])->group(function () {
+  
+    Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
+});
