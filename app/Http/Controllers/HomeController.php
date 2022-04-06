@@ -41,8 +41,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function managerHome()
+    public function penjagaHome()
     {
-        return view('managerHome');
+        return view('penjagaHome');
     }
+
 }

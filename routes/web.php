@@ -1,8 +1,9 @@
 <?php
   
 use Illuminate\Support\Facades\Route;
-  
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CowController;
   
 /*
 |--------------------------------------------------------------------------
@@ -39,14 +40,26 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/admin/sapi',[CowController::class, 'indexAdminCow']);
+    /* Route::get('/admin/sapi/tambah',[CowController::class, 'createCow']);
+    Route::patch('/admin/sapi/store',[CowController::class, 'storeCow']);
+    Route::get('/admin/sapi/edit/{id}', [CowController::class,'editCow']);
+    Route::patch('/admin/sapi/update/{id}', [CowController::class, 'updateCow']); */
 });
   
 /*------------------------------------------
 --------------------------------------------
-All Admin Routes List
+All Manager Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'user-access:manager'])->group(function () {
+Route::middleware(['auth', 'user-access:penjaga'])->group(function () {
   
-    Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
+    Route::get('/penjaga/home', [HomeController::class, 'penjagaHome'])->name('penjaga.home');
+    Route::get('/penjaga/sapi',[CowController::class, 'indexPenjagaCow']);
+    Route::get('/penjaga/sapi/tambah',[CowController::class, 'createCow']);
+    Route::patch('/penjaga/sapi/store',[CowController::class, 'storeCow']);
+    Route::get('/penjaga/sapi/edit/{id}', [CowController::class,'editCow']);
+    Route::patch('/penjaga/sapi/update/{id}', [CowController::class, 'updateCow']);
 });
+
+
