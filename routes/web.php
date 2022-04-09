@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CowController;
-  
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,10 +41,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/sapi',[CowController::class, 'indexAdminCow']);
-    /* Route::get('/admin/sapi/tambah',[CowController::class, 'createCow']);
-    Route::patch('/admin/sapi/store',[CowController::class, 'storeCow']);
-    Route::get('/admin/sapi/edit/{id}', [CowController::class,'editCow']);
-    Route::patch('/admin/sapi/update/{id}', [CowController::class, 'updateCow']); */
+    Route::get('/admin/penjaga',[UserController::class, 'indexAdminPenjaga']);
+    Route::get('/admin/penjaga/tambah',[UserController::class, 'createPenjaga']);
+    Route::post('/admin/penjaga/store',[UserController::class, 'storePenjaga']);
+    Route::get('/admin/penjaga/edit/{id}', [UserController::class,'editPenjaga']);
+    Route::patch('/admin/penjaga/update/{id}', [UserController::class, 'updatePenjaga']);
 });
   
 /*------------------------------------------

@@ -50,7 +50,7 @@
                 ></span>
                 <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800"
-                href="/admin/sapi"
+                href="/penjaga/sapi"
                 >
                 <svg
                   class="w-5 h-5"
@@ -304,7 +304,10 @@
               <!-- Profile menu -->
               <li class="relative">
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown" type="button">
-                  <i class="fa-solid fa-user"></i>
+                  <i class="fa-solid fa-user pr-4"></i>
+                  <p class="font-semibold text-sm inline-block">
+                    {{ Auth::user()->name }}
+                  </p>
                 </button>
 
                 <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -339,7 +342,7 @@
         <div class="container px-6 mx-auto grid">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Tambah Sapi</h2>
             
-            <form method="post" action="/admin/sapi/store">
+            <form method="post" action="/penjaga/sapi/store">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
                 <div class="relative z-0 mb-6 w-full group">

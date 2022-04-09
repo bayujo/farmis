@@ -19,10 +19,9 @@
           </a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
-              
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-                href={{ route('admin.home')}}
+                href="#"
               >
                 <svg
                   class="w-5 h-5"
@@ -44,14 +43,10 @@
           </ul>
           <ul>
             <li class="relative px-6 py-3">
-                <span
-                class="absolute inset-y-0 left-0 w-1 bg-indigo-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-                ></span>
-                <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800"
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
                 href="/admin/sapi"
-                >
+              >
                 <svg
                   class="w-5 h-5"
                   aria-hidden="true"
@@ -70,8 +65,12 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
+                <span
+                class="absolute inset-y-0 left-0 w-1 bg-indigo-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+                ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800"
                 href="/admin/penjaga"
               >
                 <svg
@@ -303,7 +302,6 @@
               </li>
               <!-- Profile menu -->
               <li class="relative">
-                
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown" type="button">
                   <i class="fa-solid fa-user pr-4"></i>
                   <p class="font-semibold text-sm inline-block">
@@ -341,60 +339,68 @@
       </header>
       <main class="h-full overflow-y-auto bg-gray-50">
         <div class="container px-6 mx-auto grid">
-          <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Sapi</h2>
-          
-          @if ($message = Session::get('success'))
-          <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800">
-              <p>{{ $message }}</p>
-          </div>
-          @endif
-
-
-          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                      <tr>
-                          <th scope="col" class="px-6 py-3">
-                              Kode
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Nama
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Bobot (KG)
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Tanggal Lahir
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Umur (Tahun)
-                          </th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($cow as $c)
-                      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                          <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                              {{$c->kode}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$c->nama}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$c->bobot}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$c->tgl_lahir}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$c->age()}}
-                          </td>
-                      </tr>
-                    @endforeach
-                  </tbody>
-              </table>
-
-          </div>
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Tambah Penjaga</h2>
+            
+            <form method="POST" action="/admin/penjaga/store">
+                {{ csrf_field() }}
+                {{ method_field('POST') }}
+                <div class="relative z-0 mb-6 w-full group">
+                    <input type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama</label>
+                    @if($errors->has('name'))
+                    <div>
+                        {{ $errors->first('name')}}
+                    </div>
+                    @endif
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <input type="text" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="email" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+                    @if($errors->has('email'))
+                    <div>
+                        {{ $errors->first('email')}}
+                    </div>
+                    @endif
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <input type="text" name="password" id="password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="password" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+                    @if($errors->has('password'))
+                    <div>
+                        {{ $errors->first('password')}}
+                    </div>
+                    @endif
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                  <input type="text" name="no_hp" id="no_hp" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                  <label for="no_hp" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nomor HP</label>
+                  @if($errors->has('no_hp'))
+                  <div>
+                      {{ $errors->first('no_hp')}}
+                  </div>
+                  @endif
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                  <input type="text" name="alamat" id="alamat" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                  <label for="alamat" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Alamat</label>
+                  @if($errors->has('alamat'))
+                  <div>
+                      {{ $errors->first('alamat')}}
+                  </div>
+                  @endif
+                </div>
+                
+                <div>
+                <div class="inline-block">
+                    <input type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value="Tambah">
+                </div>
+                @if($message = Session::get('success'))
+                <div class="inline-block mx-5 text-sm text-green-600">{{ $message }}</div>
+                @elseif($message = Session::get('error'))
+                <div class="inline-block mx-5 text-sm text-green-600">{{ $message }}</div>
+                @endif
+                </div>
+            </form>
         </div>
       </main>
     </div>

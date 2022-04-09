@@ -71,7 +71,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-                href="/admin/sapi"
+                href="/admin/penjaga"
               >
                 <svg
                   class="w-5 h-5"
@@ -87,7 +87,7 @@
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                   ></path>
                 </svg>
-                <span class="ml-4">Cards</span>
+                <span class="ml-4">Penjaga</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -303,7 +303,10 @@
               <!-- Profile menu -->
               <li class="relative">
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown" type="button">
-                  <i class="fa-solid fa-user"></i>
+                  <i class="fa-solid fa-user pr-4"></i>
+                  <p class="font-semibold text-sm inline-block">
+                    {{ Auth::user()->name }}
+                  </p>
                 </button>
 
                 <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
@@ -338,7 +341,7 @@
         <div class="container px-6 mx-auto grid">
           <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Dashboard</h2>
           <a href="#" type="button" class="text-white mb-6 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm max-w-[10rem] py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-plus pr-2"></i>Tambah Sapi</a>
-          </div>
+          
         </div>
       </main>
     </div>

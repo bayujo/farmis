@@ -1224,6 +1224,9 @@ input:checked + .toggle-bg {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
+.pr-4 {
+  padding-right: 1rem;
+}
 .pr-2 {
   padding-right: 0.5rem;
 }

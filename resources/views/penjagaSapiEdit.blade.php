@@ -304,7 +304,10 @@
               <!-- Profile menu -->
               <li class="relative">
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown" type="button">
-                  <i class="fa-solid fa-user"></i>
+                  <i class="fa-solid fa-user pr-4"></i>
+                  <p class="font-semibold text-sm inline-block">
+                    {{ Auth::user()->name }}
+                  </p>
                 </button>
 
                 <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
