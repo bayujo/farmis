@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f6cf9a2499.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -19,13 +20,9 @@
           </a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-indigo-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800"
-                href="#"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
+                href="/penjaga/home"
               >
                 <svg
                   class="w-5 h-5"
@@ -71,7 +68,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-                href="/penjaga/sapi"
+                href="#"
               >
                 <svg
                   class="w-5 h-5"
@@ -270,13 +267,13 @@
       <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white shadow-md ">
           <div
-              class="container flex items-center justify-end h-full px-6 mx-auto text-indigo-600 dark:text-indigo-300"
+              class="container flex items-center justify-between md:justify-end h-full px-6 mx-auto text-indigo-600 dark:text-indigo-300"
             >
             <!-- Mobile hamburger -->
             <button
               class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-indigo"
               @click="toggleSideMenu"
-              aria-label="Menu">
+              aria-label="Menu" id="dropdownDefault" data-dropdown-toggle="dropdown1" type="button">
               <svg
                 class="w-6 h-6"
                 aria-hidden="true"
@@ -289,6 +286,17 @@
                 </path>
               </svg>
             </button>
+            <div id="dropdown1" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+              <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                <li>
+                  <a href="/penjaga/home" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                  <a href="/penjaga/sapi" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sapi</a>
+                </li>
+                
+              </ul>
+          </div>
             <!-- Search input -->
 
             <ul class="flex items-center flex-shrink-0 space-x-6">
@@ -312,7 +320,7 @@
                 <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                   <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
-                      <a href="/penjaga/profil" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                      <a href="/admin/profil" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                     </li>
                     <li>
                       <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{{ route('logout') }}"
@@ -333,9 +341,33 @@
       </header>
       <main class="h-full overflow-y-auto bg-gray-50">
         <div class="container px-6 mx-auto grid">
-          <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Dashboard</h2>
-          <a href="#" type="button" class="text-white mb-6 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm max-w-[10rem] py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-plus pr-2"></i>Tambah Sapi</a>
+          <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Profil</h2>
+          <div class="w-full justify-center flex mb-16">
+            <i class="fa-solid fa-circle-user text-gray-300 text-[12rem]"></i>
           </div>
+          <form>
+            <div class="mb-6 flex items-center">
+              <label for="name" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
+              <label type="name" id="name" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{Auth::user()->name}}</label>
+            </div>
+            <div class="mb-6 flex items-center">
+              <label for="email" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+              <label type="email" id="email" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{Auth::user()->email}}</label>
+            </div>
+            <div class="mb-6 flex items-center">
+              <label for="password" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+              <label type="password" id="password" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{Auth::user()->password}}</label>
+            </div>
+            <div class="mb-6 flex items-center">
+              <label for="no_hp" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nomor HP</label>
+              <label type="no_hp" id="no_hp" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{Auth::user()->no_hp}}</label>
+            </div>
+            <div class="mb-6 flex items-center">
+              <label for="alamat" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat</label>
+              <label type="alamat" id="alamat" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{Auth::user()->alamat}}</label>
+            </div>
+          </form>
+          
         </div>
       </main>
     </div>

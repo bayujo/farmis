@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f6cf9a2499.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -25,7 +26,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800"
-                href="#"
+                href="/admin/home"
               >
                 <svg
                   class="w-5 h-5"
@@ -270,13 +271,13 @@
       <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white shadow-md ">
           <div
-              class="container flex items-center justify-end h-full px-6 mx-auto text-indigo-600 dark:text-indigo-300"
+              class="container flex items-center justify-between md:justify-end h-full px-6 mx-auto text-indigo-600 dark:text-indigo-300"
             >
             <!-- Mobile hamburger -->
             <button
               class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-indigo"
               @click="toggleSideMenu"
-              aria-label="Menu">
+              aria-label="Menu" id="dropdownDefault" data-dropdown-toggle="dropdown1" type="button">
               <svg
                 class="w-6 h-6"
                 aria-hidden="true"
@@ -289,6 +290,19 @@
                 </path>
               </svg>
             </button>
+            <div id="dropdown1" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+              <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                <li>
+                  <a href="/admin/home" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                  <a href="/admin/sapi" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sapi</a>
+                </li>
+                <li>
+                  <a href="/admin/penjaga" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penjaga</a>
+                </li>
+              </ul>
+          </div>
             <!-- Search input -->
 
             <ul class="flex items-center flex-shrink-0 space-x-6">
@@ -312,13 +326,7 @@
                 <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                   <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                     <li>
-                      <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                      <a href="/admin/profil" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                     </li>
                     <li>
                       <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{{ route('logout') }}"
@@ -332,7 +340,7 @@
                       </form>
                     </li>
                   </ul>
-              </div>
+                </div>
               </li>
             </ul>
           </div>

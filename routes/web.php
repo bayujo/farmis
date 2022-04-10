@@ -46,6 +46,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::post('/admin/penjaga/store',[UserController::class, 'storePenjaga']);
     Route::get('/admin/penjaga/edit/{id}', [UserController::class,'editPenjaga']);
     Route::patch('/admin/penjaga/update/{id}', [UserController::class, 'updatePenjaga']);
+    Route::get('/admin/profil',[UserController::class,'adminProfile']);
+    Route::get('/admin/profil/edit/{id}', [UserController::class,'editAdminProfil']);
+    Route::patch('/admin/profil/update/{id}', [UserController::class, 'updateAdminProfil']);
 });
   
 /*------------------------------------------
@@ -61,6 +64,7 @@ Route::middleware(['auth', 'user-access:penjaga'])->group(function () {
     Route::patch('/penjaga/sapi/store',[CowController::class, 'storeCow']);
     Route::get('/penjaga/sapi/edit/{id}', [CowController::class,'editCow']);
     Route::patch('/penjaga/sapi/update/{id}', [CowController::class, 'updateCow']);
+    Route::get('/penjaga/profil',[UserController::class,'penjagaProfile']);
 });
 
 

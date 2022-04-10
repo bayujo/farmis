@@ -63,23 +63,32 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function adminProfile()
     {
-        //
+        return view('adminProfil');
     }
 
+    public function penjagaProfile()
+    {
+        return view('penjagaProfil');
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
+    public function editAdminProfil($id)
+    {
+        $user = User::find($id);
+        return view('adminProfilEdit', ['user' => $user]);
+    }
+
     public function editPenjaga($id)
     {
         $user = User::find($id);
         return view('adminPenjagaEdit', ['user' => $user]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -107,7 +116,27 @@ class UserController extends Controller
 
         return back()->with('success','berhasil mengedit data penjaga');
     }
+    
+    public function updateAdminProfil($id, Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required'
+        ]);
+        
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->no_hp = $request->no_hp;
+        $user->alamat = $request->alamat;
+        $user->save();
 
+        return back()->with('success','berhasil mengedit data penjaga');
+    }
     /**
      * Remove the specified resource from storage.
      *

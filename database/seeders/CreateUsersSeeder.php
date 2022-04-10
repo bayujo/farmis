@@ -21,18 +21,24 @@ class CreateUsersSeeder extends Seeder
                'email'=>'admin@gmail.com',
                'type'=>1,
                'password'=> bcrypt('123456'),
+               'no_hp' =>'1',
+               'alamat' => '1'
             ],
             [
                'name'=>'Manager User',
                'email'=>'manager@gmail.com',
                'type'=> 2,
                'password'=> bcrypt('123456'),
+               'no_hp' =>'1',
+               'alamat' => '1'
             ],
             [
                'name'=>'User',
                'email'=>'user@gmail.com',
                'type'=>0,
                'password'=> bcrypt('123456'),
+               'no_hp' =>'1',
+               'alamat' => '1'
             ],
         ];
     

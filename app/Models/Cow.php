@@ -9,7 +9,6 @@ class Cow extends Model
 {
     use HasFactory;
     protected $table = "cow";
-    protected $guarded = ['id'];
     protected $fillable = [
         'kode', 'nama', 'bobot', 'tgl_lahir'
     ];
