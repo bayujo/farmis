@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 
 class UserController extends Controller
 {
@@ -83,6 +84,10 @@ class UserController extends Controller
         $user = User::find($id);
         return view('adminProfilEdit', ['user' => $user]);
     }
+    public function editAdminPassword()
+    {
+        return view('adminEditPassword');
+    }
 
     public function editPenjaga($id)
     {
@@ -101,7 +106,6 @@ class UserController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'no_hp' => 'required',
             'alamat' => 'required'
         ]);
@@ -109,7 +113,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
         $user->no_hp = $request->no_hp;
         $user->alamat = $request->alamat;
         $user->save();
@@ -122,7 +125,6 @@ class UserController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'no_hp' => 'required',
             'alamat' => 'required'
         ]);
@@ -130,12 +132,23 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
         $user->no_hp = $request->no_hp;
         $user->alamat = $request->alamat;
         $user->save();
 
         return back()->with('success','berhasil mengedit data penjaga');
+    }
+    public function updateAdminPassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+   
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+   
+        return back()->with('success','berhasil mengubah password');
     }
     /**
      * Remove the specified resource from storage.
