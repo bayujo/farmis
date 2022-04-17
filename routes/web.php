@@ -40,15 +40,18 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-    Route::get('/admin/sapi',[CowController::class, 'indexAdminCow']);
-    Route::get('/admin/penjaga',[UserController::class, 'indexAdminPenjaga']);
-    Route::get('/admin/penjaga/tambah',[UserController::class, 'createPenjaga']);
+    Route::get('/admin/sapi',[CowController::class, 'indexAdminCow'])->name('admin.sapi');
+    Route::get('/admin/penjaga',[UserController::class, 'indexAdminPenjaga'])->name('admin.penjaga');
+    Route::get('/admin/penjaga/tambah',[UserController::class, 'createPenjaga'])->name('admin.penjaga.create');
     Route::post('/admin/penjaga/store',[UserController::class, 'storePenjaga']);
-    Route::get('/admin/penjaga/edit/{id}', [UserController::class,'editPenjaga']);
+    Route::get('/admin/penjaga/edit/{id}', [UserController::class,'editPenjaga'])->name('admin.penjaga.edit');
     Route::patch('/admin/penjaga/update/{id}', [UserController::class, 'updatePenjaga']);
     Route::get('/admin/profil',[UserController::class,'adminProfile']);
     Route::get('/admin/profil/edit/{id}', [UserController::class,'editAdminProfil']);
     Route::patch('/admin/profil/update/{id}', [UserController::class, 'updateAdminProfil']);
+    Route::get('/admin/profil/password/edit', [UserController::class, 'editAdminPassword']);
+    Route::post('/admin/profil/password/update', [UserController::class, 'updateAdminPassword']);
+
 });
   
 /*------------------------------------------
@@ -59,10 +62,10 @@ All Manager Routes List
 Route::middleware(['auth', 'user-access:penjaga'])->group(function () {
   
     Route::get('/penjaga/home', [HomeController::class, 'penjagaHome'])->name('penjaga.home');
-    Route::get('/penjaga/sapi',[CowController::class, 'indexPenjagaCow']);
-    Route::get('/penjaga/sapi/tambah',[CowController::class, 'createCow']);
+    Route::get('/penjaga/sapi',[CowController::class, 'indexPenjagaCow'])->name('penjaga.sapi');
+    Route::get('/penjaga/sapi/tambah',[CowController::class, 'createCow'])->name('penjaga.sapi.create');
     Route::patch('/penjaga/sapi/store',[CowController::class, 'storeCow']);
-    Route::get('/penjaga/sapi/edit/{id}', [CowController::class,'editCow']);
+    Route::get('/penjaga/sapi/edit/{id}', [CowController::class,'editCow'])->name('penjaga.sapi.edit');
     Route::patch('/penjaga/sapi/update/{id}', [CowController::class, 'updateCow']);
     Route::get('/penjaga/profil',[UserController::class,'penjagaProfile']);
 });

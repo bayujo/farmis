@@ -41,6 +41,11 @@
                     <div class="w-full mt-16 md:mt-0 md:w-2/5">
                         <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 rounded-lg shadow-2xl px-7">
                             <h3 class="mb-6 text-2xl font-medium text-center">Sign in to your Account</h3>
+                            @if($message = Session::get('error'))
+                            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                                <span class="font-medium">{{ $message }}</span>
+                            </div>
+                            @endif
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
         
