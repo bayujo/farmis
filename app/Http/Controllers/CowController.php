@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cow;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CowController extends Controller
 {
@@ -58,7 +59,8 @@ class CowController extends Controller
             'bobot' => $request->bobot,
             'tgl_lahir' => $request->tgl_lahir
         ]);
-        return back()->with('success','berhasil menambahkan data sapi');
+        Alert::toast('Berhasil menambahkan data sapi');
+        return redirect('/penjaga/sapi');
     }
 
     /**
@@ -107,7 +109,8 @@ class CowController extends Controller
         $cow->tgl_lahir = $request->tgl_lahir;
         $cow->save();
 
-        return back()->with('success','berhasil mengedit data sapi');
+        Alert::toast('Berhasil mengedit data sapi');
+        return redirect('/penjaga/sapi');
     }
 
     /**

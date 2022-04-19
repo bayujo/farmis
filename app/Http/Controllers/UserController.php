@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Rules\MatchOldPassword;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -55,7 +56,8 @@ class UserController extends Controller
             'no_hp' => $request -> no_hp,
             'alamat' => $request -> alamat
         ]);
-        return back()->with('success','berhasil menambahkan data penjaga');
+        Alert::toast('Berhasil menambahkan data penjaga');
+        return redirect('/admin/penjaga');
     }
 
     /**
@@ -117,7 +119,8 @@ class UserController extends Controller
         $user->alamat = $request->alamat;
         $user->save();
 
-        return back()->with('success','berhasil mengedit data penjaga');
+        Alert::toast('Berhasil mengedit data penjaga');
+        return redirect('/admin/penjaga');
     }
     
     public function updateAdminProfil($id, Request $request)
@@ -136,7 +139,8 @@ class UserController extends Controller
         $user->alamat = $request->alamat;
         $user->save();
 
-        return back()->with('success','berhasil mengedit data penjaga');
+        Alert::toast('Berhasil mengedit profil');
+        return redirect('/admin/profil');
     }
     public function updateAdminPassword(Request $request)
     {
@@ -148,7 +152,8 @@ class UserController extends Controller
    
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
-        return back()->with('success','berhasil mengubah password');
+        Alert::toast('Berhasil mengubah password');
+        return redirect('/admin/profil');
     }
     /**
      * Remove the specified resource from storage.

@@ -9,11 +9,6 @@
         <div class="container px-6 mx-auto grid">
           <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Sapi</h2>
           <a href="/penjaga/sapi/tambah" type="button" class="text-white mb-6 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm max-w-[10rem] py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-plus pr-2"></i>Tambah Sapi</a>
-          @if ($message = Session::get('success'))
-          <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800">
-              <p>{{ $message }}</p>
-          </div>
-          @endif
 
 
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

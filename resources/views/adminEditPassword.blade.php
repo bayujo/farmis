@@ -6,13 +6,6 @@
   <div class="flex flex-col flex-1 w-full">
     @include('layouts.navbar')
       <main class="h-full overflow-y-auto bg-gray-50">
-        @if($message = Session::get('success'))
-        <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-          <span class="font-medium">{{ $message }}</span>
-        </div>
-        @elseif($message = Session::get('error'))
-            <div class="mx-5 text-sm text-green-600">{{ $message }}</div>
-        @endif
         <div class="container px-6 mx-auto grid">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Edit Password</h2>
             <form method="POST" action="/admin/profil/password/update">

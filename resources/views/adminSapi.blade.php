@@ -9,11 +9,7 @@
         <div class="container px-6 mx-auto grid">
           <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Sapi</h2>
           
-          @if ($message = Session::get('success'))
-          <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800">
-              <p>{{ $message }}</p>
-          </div>
-          @endif
+          
 
 
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

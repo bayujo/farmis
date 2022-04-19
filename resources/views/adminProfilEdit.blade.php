@@ -6,13 +6,7 @@
   <div class="flex flex-col flex-1 w-full">
     @include('layouts.navbar')
   <main class="h-full overflow-y-auto bg-gray-50">
-    @if($message = Session::get('success'))
-    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-      <span class="font-medium">{{ $message }}</span>
-    </div>
-    @elseif($message = Session::get('error'))
-        <div class="mx-5 text-sm text-green-600">{{ $message }}</div>
-    @endif
+    
     <form class="container px-6 mx-auto grid" method="post" action="/admin/profil/update/{{ Auth::user()->id }}">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
