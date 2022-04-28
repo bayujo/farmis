@@ -16,7 +16,7 @@ class CowController extends Controller
     public function indexPenjagaCow()
     {
         $cow = Cow::all();
-        return view('penjagaSapi', [
+        return view('penjaga.penjagaSapi', [
             'cow'=>$cow
         ]);
     }
@@ -24,7 +24,7 @@ class CowController extends Controller
     public function indexAdminCow()
     {
         $cow = Cow::all();
-        return view('adminSapi', [
+        return view('admin.adminSapi', [
             'cow'=>$cow
         ]);
     }
@@ -35,7 +35,7 @@ class CowController extends Controller
      */
     public function createCow()
     {
-        return view('penjagaSapiTambah');
+        return view('penjaga.penjagaSapiTambah');
     }
 
     /**
@@ -83,7 +83,7 @@ class CowController extends Controller
     public function editCow($id)
     {
         $cow = Cow::find($id);
-        return view('penjagaSapiEdit', ['cow' => $cow]);
+        return view('penjaga.penjagaSapiEdit', ['cow' => $cow]);
     }
 
     /**

@@ -18,7 +18,7 @@ class UserController extends Controller
     public function indexAdminPenjaga()
     {
         $user = DB::select('select * from users where type = :type', ['type' => 2]);
-    	return view('adminPenjaga', [
+    	return view('admin.adminPenjaga', [
             'user'=>$user
         ]);
     }
@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function createPenjaga()
     {
-        return view('adminPenjagaTambah');
+        return view('admin.adminPenjagaTambah');
     }
 
     /**
@@ -68,12 +68,12 @@ class UserController extends Controller
      */
     public function adminProfile()
     {
-        return view('adminProfil');
+        return view('admin.adminProfil');
     }
 
     public function penjagaProfile()
     {
-        return view('penjagaProfil');
+        return view('penjaga.penjagaProfil');
     }
     /**
      * Show the form for editing the specified resource.
@@ -84,17 +84,17 @@ class UserController extends Controller
     public function editAdminProfil($id)
     {
         $user = User::find($id);
-        return view('adminProfilEdit', ['user' => $user]);
+        return view('admin.adminProfilEdit', ['user' => $user]);
     }
     public function editAdminPassword()
     {
-        return view('adminEditPassword');
+        return view('admin.adminEditPassword');
     }
 
     public function editPenjaga($id)
     {
         $user = User::find($id);
-        return view('adminPenjagaEdit', ['user' => $user]);
+        return view('admin.adminPenjagaEdit', ['user' => $user]);
     }
     /**
      * Update the specified resource in storage.

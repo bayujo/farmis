@@ -10,23 +10,10 @@
     <section class="relative w-full px-8 text-gray-700 bg-white body-font">
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
             <a href="#_" class="relative z-10 flex items-center w-auto text-2xl font-extrabold leading-none text-black select-none"><i class="fa-solid fa-cow pr-[0.5rem]"></i>farmis.</a>
-            <nav class="top-0 left-0 z-0 flex items-center justify-center w-full h-full py-5 -ml-0 space-x-5 text-base md:-ml-5 md:py-0 md:absolute">
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Home</span>
-                </a>
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Features</span>
-                </a>
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Pricing</span>
-                </a>
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Blog</span>
-                </a>
-            </nav>
+            
             <div class="relative z-10 inline-flex items-center space-x-3 md:ml-5 lg:justify-end">
               @if (Route::has('login'))
-                  
+                
                     @auth
                         @if (Auth::user()->type=='admin')
                             <a href="{{ route('admin.home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-full">Dashboard</a>
@@ -38,7 +25,7 @@
                     @else
                           <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 shadow-sm hover:bg-gray-50 focus:outline-none focus:shadow-none rounded-full">Log in</a>
                     @endauth
-                  
+                
               @endif
             </div>
         </div>
@@ -54,15 +41,7 @@
                       <span class="block text-indigo-600 xl:inline">Manage Your Business!</span>
                   </h1>
                   <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">Say hi to Farmis, your new online farm packed with all the elements your website can every possibility need.</p>
-                  <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-                      <a href="#_" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 sm:mb-0 hover:bg-indigo-700 sm:w-auto rounded-full">
-                      Try It Free
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                      </a>
-                      <a href="#_" class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-gray-600 rounded-full">
-                      Learn More
-                      </a>
-                  </div>
+                  
                   </div>
               </div>
               <div class="w-full md:w-1/2">

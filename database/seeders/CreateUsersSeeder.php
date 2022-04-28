@@ -17,7 +17,7 @@ class CreateUsersSeeder extends Seeder
     {
         $users = [
             [
-               'name'=>'Admin User',
+               'name'=>'Admin',
                'email'=>'admin@gmail.com',
                'type'=>1,
                'password'=> bcrypt('123456'),
@@ -25,7 +25,7 @@ class CreateUsersSeeder extends Seeder
                'alamat' => '1'
             ],
             [
-               'name'=>'Manager User',
+               'name'=>'Penjaga',
                'email'=>'manager@gmail.com',
                'type'=> 2,
                'password'=> bcrypt('123456'),

@@ -11,20 +11,6 @@
     <section class="relative w-full px-8 text-gray-700 bg-white body-font">
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
             <a href="/" class="relative z-10 flex items-center w-auto text-2xl font-extrabold leading-none text-black select-none"><i class="fa-solid fa-cow pr-[0.5rem]"></i>farmis.</a>
-            <nav class="top-0 left-0 z-0 flex items-center w-full justify-center h-full py-5 -ml-0 space-x-5 text-base md:-ml-5 md:py-0 md:absolute">
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Home</span>
-                </a>
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Features</span>
-                </a>
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Pricing</span>
-                </a>
-                <a href="" class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900" x-data="{ hover: false }">
-                    <span class='block'>Blog</span>
-                </a>
-            </nav>
         </div>
     </section>
     <section>
@@ -90,13 +76,7 @@
                                         <button type="submit" class="w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg">
                                             {{ __('Login') }}
                                         </button>
-                                        <div class="w-full mt-4 text-sm text-center text-gray-500">
-                                            @if (Route::has('password.request'))
-                                                <a class="" href="{{ route('password.request') }}">
-                                                    {{ __('Forgot Your Password?') }}
-                                                </a>
-                                            @endif
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </form>

@@ -62,4 +62,10 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "admin", "penjaga"][$value],
         );
     }
+
+    public function schedule()
+    {
+        return $this->hasMany(Schedule::class, 'id_users','id');
+    }
+    
 }

@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('schedule', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('judul');
             $table->date('start');
             $table->date('end');
+            $table->bigInteger('id_users')->unsigned();
+            $table->string('id_cow')->unsigned();
+            $table->foreign('id_users')->references('id')->on('users');
+            $table->foreign('id_cow')->references('kode')->on('cow');
             $table->timestamps();
         });
     }

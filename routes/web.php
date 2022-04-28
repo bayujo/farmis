@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CowController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,11 @@ Route::middleware(['auth', 'user-access:penjaga'])->group(function () {
     Route::get('/penjaga/sapi/edit/{id}', [CowController::class,'editCow'])->name('penjaga.sapi.edit');
     Route::patch('/penjaga/sapi/update/{id}', [CowController::class, 'updateCow']);
     Route::get('/penjaga/profil',[UserController::class,'penjagaProfile']);
+    Route::get('/penjaga/penjadwalan', [ScheduleController::class, 'indexPenjagaPenjadwalan'])->name('penjaga.penjadwalan');
+    Route::get('/penjaga/penjadwalan/status', [ScheduleController::class, 'changeStatus']);
+    Route::get('penjaga/penjadwalan/tambah', [ScheduleController::class, 'createSchedule'])->name('penjaga.penjadwalan.create');
+    Route::patch('/penjaga/penjadwalan/store',[ScheduleController::class, 'storeSchedule']);
+    Route::get('/penjaga/penjadwalan/edit/{id}', [ScheduleController::class,'editSchedule'])->name('penjaga.penjadwalan.edit');
+    Route::patch('/penjaga/penjadwalan/update/{id}', [ScheduleController::class, 'updateSchedule']);
 });
-
 

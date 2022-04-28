@@ -16,4 +16,8 @@ class Cow extends Model
     {
         return Carbon::parse($this->attributes['tgl_lahir'])->age;
     }
+    public function schedule()
+    {
+        return $this->hasMany(Schedule::class,'id_cow','id');
+    }
 }
