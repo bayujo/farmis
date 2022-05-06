@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\Cow;
 use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,6 +15,14 @@ class ScheduleController extends Controller
     {
         $penjadwalan = Schedule::all();
         return view('penjaga.penjagaPenjadwalan', [
+            'penjadwalan'=>$penjadwalan
+        ]);
+    }
+
+    public function indexAdminPenjadwalan()
+    {
+        $penjadwalan = Schedule::all();
+        return view('admin.adminPenjadwalan', [
             'penjadwalan'=>$penjadwalan
         ]);
     }
