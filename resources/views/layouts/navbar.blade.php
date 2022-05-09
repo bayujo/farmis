@@ -38,6 +38,9 @@
           <li>
             <a href="/penjaga/sapi" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sapi</a>
           </li>
+          <li>
+            <a href="/penjaga/penjadwalan" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penjadwalan</a>
+          </li>
           @endif
         </ul>
     </div>

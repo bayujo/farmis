@@ -42,11 +42,11 @@ class UserController extends Controller
     public function storePenjaga(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
+            'name' => 'required|max:30',
+            'email' => 'required|max:30|email',
             'password' => 'required',
-            'no_hp' => 'required',
-            'alamat' => 'required'
+            'no_hp' => 'required|min:12|max:12|string|starts with:08',
+            'alamat' => 'required|string'
         ]);
         
         User::create([
@@ -106,10 +106,10 @@ class UserController extends Controller
     public function updatePenjaga($id, Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
-            'no_hp' => 'required',
-            'alamat' => 'required'
+            'name' => 'required|max:30',
+            'email' => 'required|max:30|email',
+            'no_hp' => 'required|min:12|max:12|string|starts with:08',
+            'alamat' => 'required|string'
         ]);
         
         $user = User::find($id);
@@ -126,10 +126,10 @@ class UserController extends Controller
     public function updateAdminProfil($id, Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
-            'no_hp' => 'required',
-            'alamat' => 'required'
+            'name' => 'required|max:30',
+            'email' => 'required|max:30|email',
+            'no_hp' => 'required|min:12|max:12|string|starts with:08',
+            'alamat' => 'required|string'
         ]);
         
         $user = User::find($id);
@@ -142,6 +142,7 @@ class UserController extends Controller
         Alert::toast('Berhasil mengedit profil');
         return redirect('/admin/profil');
     }
+    
     public function updateAdminPassword(Request $request)
     {
         $request->validate([

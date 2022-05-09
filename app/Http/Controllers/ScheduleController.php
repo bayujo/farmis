@@ -44,10 +44,10 @@ class ScheduleController extends Controller
     public function storeSchedule(Request $request)
     {
         $this->validate($request,[
-            'judul' => 'required',
+            'judul' => 'required|max:30',
             'tanggal' => 'required',
             'id_users' => 'required',
-            'id_cow' => 'required',
+            'id_cow' => 'required|max:5',
 
         ]);
         
@@ -71,10 +71,10 @@ class ScheduleController extends Controller
     public function updateSchedule($id, Request $request)
     {
         $this->validate($request,[
-            'judul' => 'required',
+            'judul' => 'required|max:30',
             'tanggal' => 'required',
             'id_users' => 'required',
-            'id_cow' => 'required',
+            'id_cow' => 'required|max:5',
         ]);
         
         $schedule = Schedule::find($id);

@@ -22,7 +22,6 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('password');
             $table->tinyInteger('type')->default(0);
-            /* Users: 0=>User, 1=>Admin, 2=>Manager */
             $table->rememberToken();
             $table->timestamps();
         });

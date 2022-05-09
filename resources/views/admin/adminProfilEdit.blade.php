@@ -21,42 +21,42 @@
       </div>
       <div >
         
-        <div class="mb-6 flex items-center">
-          <label for="name" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
-          <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{Auth::user()->name}}"/>
+        <div class="relative z-0 mb-6 w-full group">
+          <input type="text" value="{{ $user->name }}" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama</label>
           @if($errors->has('name'))
-          <div>
-              {{ $errors->first('name')}}
+          <div class="p-4 mb-4 mt-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <span class="font-medium">{{ $errors->first('name')}}</span>
           </div>
           @endif
-        </div>
-        <div class="mb-6 flex items-center">
-          <label for="email" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-          <input type="text" id="email" name="email" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{Auth::user()->email}}"/>
+      </div>
+      <div class="relative z-0 mb-6 w-full group">
+          <input type="text" value="{{ $user->email }}" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="email" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
           @if($errors->has('email'))
-          <div>
-              {{ $errors->first('email')}}
+          <div class="p-4 mb-4 mt-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <span class="font-medium">{{ $errors->first('email')}}</span>
           </div>
           @endif
+      </div>
+      <div class="relative z-0 mb-6 w-full group">
+        <input type="text" value="{{ $user->no_hp }}" name="no_hp" id="no_hp" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="no_hp" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nomor HP</label>
+        @if($errors->has('no_hp'))
+        <div class="p-4 mb-4 mt-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+          <span class="font-medium">{{ $errors->first('no_hp')}}</span>
         </div>
-        <div class="mb-6 flex items-center">
-          <label for="no_hp" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nomor HP</label>
-          <input type="text" id="no_hp" name="no_hp" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{Auth::user()->no_hp}}"/>
-          @if($errors->has('no_hp'))
-          <div>
-              {{ $errors->first('no_hp')}}
-          </div>
-          @endif
+        @endif
+      </div>
+      <div class="relative z-0 mb-6 w-full group">
+        <input type="text" value="{{ $user->alamat }}" name="alamat" id="alamat" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="alamat" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Alamat</label>
+        @if($errors->has('alamat'))
+        <div class="p-4 mb-4 mt-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+          <span class="font-medium">{{ $errors->first('alamat')}}</span>
         </div>
-        <div class="mb-6 flex items-center">
-          <label for="alamat" class="w-1/4 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat</label>
-          <input type="text" id="alamat" name="alamat" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{Auth::user()->alamat}}"/>
-          @if($errors->has('alamat'))
-          <div>
-              {{ $errors->first('alamat')}}
-          </div>
-          @endif
-        </div>
+        @endif
+      </div>
     </div>
     </form>
   </main>
