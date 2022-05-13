@@ -90,7 +90,11 @@ class UserController extends Controller
     {
         return view('admin.adminEditPassword');
     }
-
+    public function editPenjagaPassword($id)
+    {
+        $user = User::find($id);
+        return view('admin.adminPenjagaEditPassword', ['user' => $user]);
+    }
     public function editPenjaga($id)
     {
         $user = User::find($id);
@@ -155,6 +159,20 @@ class UserController extends Controller
    
         Alert::toast('Berhasil mengubah password');
         return redirect('/admin/profil');
+    }
+
+    public function updatePenjagaPassword($id, Request $request)
+    {
+        $this->validate($request, [
+            'new_password' => 'required',
+            'new_confirm_password' => 'same:new_password',
+        ]);
+
+        $user = User::find($id);
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+        Alert::toast('Berhasil mengubah password');
+        return redirect('/admin/penjaga');
     }
     /**
      * Remove the specified resource from storage.

@@ -26,6 +26,9 @@
                               Alamat
                           </th>
                           <th scope="col" class="px-6 py-3">
+                            <span class="sr-only">Ubah Password</span>
+                          </th>
+                          <th scope="col" class="px-6 py-3">
                               <span class="sr-only">Edit</span>
                           </th>
                           
@@ -45,6 +48,9 @@
                           </td>
                           <td class="px-6 py-4">
                             {{$u->alamat}}
+                          </td>
+                          <td class="px-6 py-4 text-right">
+                            <a href="/admin/penjaga/password/edit/{{ $u->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Ubah Password</a>
                           </td>
                           <td class="px-6 py-4 text-right">
                               <a href="/admin/penjaga/edit/{{ $u->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>

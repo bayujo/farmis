@@ -69,7 +69,7 @@
           </a>
         </li>
         <li class="relative px-6 py-3">
-          @if(Route::current()->getName() == 'admin.penjaga' or Route::current()->getName() == 'admin.penjaga.edit' or Route::current()->getName() == 'admin.penjaga.create')
+          @if(Route::current()->getName() == 'admin.penjaga' or Route::current()->getName() == 'admin.penjaga.edit' or Route::current()->getName() == 'admin.penjaga.create' or Route::current()->getName() == 'admin.penjaga.password.edit')
           <span
                 class="absolute inset-y-0 left-0 w-1 bg-indigo-600 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
@@ -77,7 +77,7 @@
           @else
           @endif
           <a
-            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 @if(Route::current()->getName() == 'admin.penjaga' or Route::current()->getName() == 'admin.penjaga.edit' or Route::current()->getName() == 'admin.penjaga.create') text-gray-800 @endif"
+            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 @if(Route::current()->getName() == 'admin.penjaga' or Route::current()->getName() == 'admin.penjaga.edit' or Route::current()->getName() == 'admin.penjaga.create' or Route::current()->getName() == 'admin.penjaga.password.edit') text-gray-800 @endif"
             href="/admin/penjaga"
           >
             <svg

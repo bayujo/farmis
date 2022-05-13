@@ -51,7 +51,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/profil/edit/{id}', [UserController::class,'editAdminProfil']);
     Route::patch('/admin/profil/update/{id}', [UserController::class, 'updateAdminProfil']);
     Route::get('/admin/profil/password/edit', [UserController::class, 'editAdminPassword']);
+    Route::get('/admin/penjaga/password/edit/{id}', [UserController::class, 'editPenjagaPassword'])->name('admin.penjaga.password.edit');
     Route::post('/admin/profil/password/update', [UserController::class, 'updateAdminPassword']);
+    Route::post('/admin/penjaga/password/update/{id}', [UserController::class, 'updatePenjagaPassword']);
     Route::get('/admin/penjadwalan', [ScheduleController::class, 'indexAdminPenjadwalan'])->name('admin.penjadwalan');
 
 });
