@@ -49,7 +49,7 @@ class CowController extends Controller
         $this->validate($request,[
             'kode' => 'required|max:5',
             'nama' => 'required|max:30',
-            'bobot' => 'required',
+            'bobot' => 'required|integer|max:2000',
             'tgl_lahir' => 'required|before_or_equal:today',
         ]);
         
@@ -98,7 +98,7 @@ class CowController extends Controller
         $this->validate($request,[
             'kode' => 'required|max:5',
             'nama' => 'required|max:30',
-            'bobot' => 'required',
+            'bobot' => 'required|integer|max:2000',
             'tgl_lahir' => 'required|before_or_equal:today',
         ]);
         
