@@ -54,7 +54,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/penjaga/password/edit/{id}', [UserController::class, 'editPenjagaPassword'])->name('admin.penjaga.password.edit');
     Route::post('/admin/profil/password/update', [UserController::class, 'updateAdminPassword']);
     Route::post('/admin/penjaga/password/update/{id}', [UserController::class, 'updatePenjagaPassword']);
-    Route::get('/admin/penjadwalan', [ScheduleController::class, 'indexAdminPenjadwalan'])->name('admin.penjadwalan');
+    Route::get('/admin/penjadwalan', [ScheduleController::class, 'indexAdminSchedule'])->name('admin.penjadwalan');
 
 });
   
@@ -72,7 +72,7 @@ Route::middleware(['auth', 'user-access:penjaga'])->group(function () {
     Route::get('/penjaga/sapi/edit/{id}', [CowController::class,'editCow'])->name('penjaga.sapi.edit');
     Route::patch('/penjaga/sapi/update/{id}', [CowController::class, 'updateCow']);
     Route::get('/penjaga/profil',[UserController::class,'penjagaProfile']);
-    Route::get('/penjaga/penjadwalan', [ScheduleController::class, 'indexPenjagaPenjadwalan'])->name('penjaga.penjadwalan');
+    Route::get('/penjaga/penjadwalan', [ScheduleController::class, 'indexPenjagaSchedule'])->name('penjaga.penjadwalan');
     Route::get('/penjaga/penjadwalan/status', [ScheduleController::class, 'changeStatus']);
     Route::get('penjaga/penjadwalan/tambah', [ScheduleController::class, 'createSchedule'])->name('penjaga.penjadwalan.create');
     Route::patch('/penjaga/penjadwalan/store',[ScheduleController::class, 'storeSchedule']);

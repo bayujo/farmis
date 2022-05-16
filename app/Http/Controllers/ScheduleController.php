@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
 
 class ScheduleController extends Controller
 {
-    public function indexPenjagaPenjadwalan()
+    public function indexPenjagaSchedule()
     {
         $penjadwalan = Schedule::all();
         return view('penjaga.penjagaPenjadwalan', [
@@ -19,7 +19,7 @@ class ScheduleController extends Controller
         ]);
     }
 
-    public function indexAdminPenjadwalan()
+    public function indexAdminSchedule()
     {
         $penjadwalan = Schedule::all();
         return view('admin.adminPenjadwalan', [
