@@ -56,6 +56,9 @@
                   </tbody>
               </table>
           </div>
+          <div class="my-5">
+            {{$cow->links()}}
+          </div>
         </div>
       </main>
     </div>

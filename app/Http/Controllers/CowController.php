@@ -15,7 +15,7 @@ class CowController extends Controller
      */
     public function indexPenjagaCow()
     {
-        $cow = Cow::all();
+        $cow = Cow::latest()->paginate(10);
         return view('penjaga.penjagaSapi', [
             'cow'=>$cow
         ]);
@@ -23,7 +23,7 @@ class CowController extends Controller
 
     public function indexAdminCow()
     {
-        $cow = Cow::all();
+        $cow = Cow::latest()->paginate(10);
         return view('admin.adminSapi', [
             'cow'=>$cow
         ]);

@@ -13,7 +13,7 @@ class ScheduleController extends Controller
 {
     public function indexPenjagaSchedule()
     {
-        $penjadwalan = Schedule::all();
+        $penjadwalan = Schedule::latest()->paginate(10);
         return view('penjaga.penjagaPenjadwalan', [
             'penjadwalan'=>$penjadwalan
         ]);
@@ -21,7 +21,7 @@ class ScheduleController extends Controller
 
     public function indexAdminSchedule()
     {
-        $penjadwalan = Schedule::all();
+        $penjadwalan = Schedule::latest()->paginate(10);
         return view('admin.adminPenjadwalan', [
             'penjadwalan'=>$penjadwalan
         ]);

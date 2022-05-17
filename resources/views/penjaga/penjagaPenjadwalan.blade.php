@@ -63,6 +63,10 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="my-5">
+                {{$penjadwalan->links()}}
+            </div>
         </div>
       </main>
     </div>

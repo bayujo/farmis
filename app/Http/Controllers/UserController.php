@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function indexAdminPenjaga()
     {
-        $user = DB::select('select * from users where type = :type', ['type' => 2]);
+        $user = User::where('type', '=', 2)->paginate(10);
     	return view('admin.adminPenjaga', [
             'user'=>$user
         ]);
