@@ -18,6 +18,7 @@
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/datepicker.js"></script>
     <script src="https://kit.fontawesome.com/f6cf9a2499.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
     $(function() {
         $('.something').change(function() {
@@ -35,6 +36,25 @@
             });
         })
     })
+    </script>
+    <script type="text/javascript">
+      $('.show_confirm').click(function(event) {
+           var form =  $(this).closest("form");
+           var name = $(this).data("name");
+           event.preventDefault();
+           swal({
+               title: `Apakah anda yakin ingin menghapus data ini?`,
+               text: "Data akan hilang selamanya setelah dihapus",
+               icon: "",
+               buttons: ["Cancel", "Hapus"],
+               dangerMode: "true"
+           })
+           .then((willDelete) => {
+             if (willDelete) {
+               form.submit();
+             }
+           });
+       });
     </script>
   </body>
 </html>

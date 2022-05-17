@@ -18,7 +18,7 @@ return new class extends Migration
             $table->smallInteger('jenis');
             $table->bigInteger('nominal');
             $table->date('tanggal');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }
