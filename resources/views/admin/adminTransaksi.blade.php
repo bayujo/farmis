@@ -8,7 +8,7 @@
       <main class="h-full overflow-y-auto bg-gray-50">
         <div class="container px-6 mx-auto grid">
           <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Transaksi</h2>
-          <a href="/admin/transaksi/tambah" type="button" class="text-white mb-6 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm max-w-[10rem] py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-plus pr-2"></i>Tambah Transaksi</a>
+          <a href="/admin/transaksi/tambah" type="button" class="text-white mb-6 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 font-medium rounded-full text-sm max-w-[10rem] py-2.5 text-center mr-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"><i class="fa-solid fa-plus pr-2"></i>Tambah Transaksi</a>
           
 
 
@@ -51,16 +51,13 @@
                             {{$t->keterangan}}
                           </td>
                           <td class="py-4 text-right">
-                            <a href="/admin/transaksi/edit/{{ $t->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <a href="/admin/transaksi/edit/{{ $t->id }}" class="font-medium text-indigo-600 dark:text-indigo-500 hover:underline">Edit</a>
                           </td>
-                          {{-- <td>
-                            <a href="/admin/transaksi/delete/{{ $t->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Hapus</a>
-                          </td> --}}
                           <td class="text-right px-6">
                             <form class="m-0" method="POST" action="{{ route('admin.transaksi.delete', $t->id) }}">
                               @csrf
                               <input name="_method" type="hidden" value="DELETE">
-                              <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+                              <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
                             </form>
                           </td>
                       </tr>

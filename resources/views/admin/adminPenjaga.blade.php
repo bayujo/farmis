@@ -8,7 +8,7 @@
       <main class="h-full overflow-y-auto bg-gray-50">
         <div class="container px-6 mx-auto grid">
           <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Penjaga</h2>
-          <a href="/admin/penjaga/tambah" type="button" class="text-white mb-6 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm max-w-[10rem] py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-plus pr-2"></i>Tambah Penjaga</a>
+          <a href="/admin/penjaga/tambah" type="button" class="text-white mb-6 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 font-medium rounded-full text-sm max-w-[10rem] py-2.5 text-center mr-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"><i class="fa-solid fa-plus pr-2"></i>Tambah Penjaga</a>
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
               <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                   <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -50,10 +50,10 @@
                             {{$u->alamat}}
                           </td>
                           <td class="px-6 py-4 text-right">
-                            <a href="/admin/penjaga/password/edit/{{ $u->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Ubah Password</a>
+                            <a href="/admin/penjaga/password/edit/{{ $u->id }}" class="font-medium text-indigo-600 dark:text-indigo-500 hover:underline">Ubah Password</a>
                           </td>
                           <td class="px-6 py-4 text-right">
-                              <a href="/admin/penjaga/edit/{{ $u->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                              <a href="/admin/penjaga/edit/{{ $u->id }}" class="font-medium text-indigo-600 dark:text-indigo-500 hover:underline">Edit</a>
                           </td>
                       </tr>
                     @endforeach

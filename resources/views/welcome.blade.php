@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/f6cf9a2499.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <section class="relative w-full px-8 text-gray-700 bg-white body-font">
+    <section class="relative w-full px-8 text-gray-600 bg-white body-font">
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
             <a href="#_" class="relative z-10 flex items-center w-auto text-2xl font-extrabold leading-none text-black select-none"><i class="fa-solid fa-cow pr-[0.5rem]"></i>farmis.</a>
             
@@ -16,11 +16,11 @@
                 
                     @auth
                         @if (Auth::user()->type=='admin')
-                            <a href="{{ route('admin.home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-full">Dashboard</a>
+                            <a href="{{ route('admin.home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-indigo-600 shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-full">Dashboard</a>
                         @elseif (Auth::user()->type=='penjaga')
-                            <a href="{{ route('penjaga.home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-full">Dashboard</a>
+                            <a href="{{ route('penjaga.home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-indigo-600 shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-full">Dashboard</a>
                         @else
-                            <a href="{{ route('home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-full">Dashboard</a>
+                            <a href="{{ route('home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-indigo-600 shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-full">Dashboard</a>
                         @endif
                     @else
                           <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 shadow-sm hover:bg-gray-50 focus:outline-none focus:shadow-none rounded-full">Log in</a>
@@ -53,7 +53,7 @@
       </div>
   </section>
                   
-  <section class="text-gray-700 bg-white body-font">
+  <section class="text-gray-600 bg-white body-font">
       <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
           <a href="#_" class="text-xl font-black leading-none text-gray-900 select-none logo">farmis<span class="text-indigo-600">.</span></a>
           <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">© 2021 farmis - Farm Information System

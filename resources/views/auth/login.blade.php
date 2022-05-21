@@ -18,7 +18,7 @@
             <div class="max-w-5xl mx-auto">
                 <div class="flex flex-col items-center md:flex-row">
                     <div class="w-full space-y-5 md:w-3/5 md:pr-16">
-                        <p class="font-medium text-blue-500 uppercase">Building Businesses</p>
+                        <p class="font-medium text-indigo-500 uppercase">Building Businesses</p>
                         <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
                             Changing The Way People Do Business.
                         </h2>
@@ -37,7 +37,7 @@
         
                                 <div class="">
                                     <div class="">
-                                        <input id="email" type="email" class="block form-control w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email address" required autocomplete="email" autofocus>
+                                        <input id="email" type="email" class="block form-control w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email address" required autocomplete="email" autofocus>
         
                                         @error('email')
                                             <span class="invalid-feedback w-full px-4 py-3 mb-4" role="alert">
@@ -49,7 +49,7 @@
         
                                 <div class="">
                                     <div class="">
-                                        <input id="password" type="password" class="block form-control w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+                                        <input id="password" type="password" class="block form-control w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
         
                                         @error('password')
                                             <span class="invalid-feedback w-full px-4 py-3 mb-4" role="alert">
@@ -73,7 +73,7 @@
         
                                 <div class="">
                                     <div class="block">
-                                        <button type="submit" class="w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg">
+                                        <button type="submit" class="w-full px-3 py-4 font-medium text-white bg-indigo-600 rounded-lg">
                                             {{ __('Login') }}
                                         </button>
                                         

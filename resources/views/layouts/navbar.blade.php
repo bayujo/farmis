@@ -19,8 +19,8 @@
           </path>
         </svg>
       </button>
-      <div id="dropdown1" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+      <div id="dropdown1" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-600">
+        <ul class="py-1 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownDefault">
           @if (Auth::user()->type=='admin')
           <li>
             <a href="/admin/home" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
@@ -58,16 +58,16 @@
             <i class="fa-solid fa-circle absolute text-red-500 text-[0.5rem] -mt-[0.1rem] -ml-[0.4rem] animate-ping"></i>
             @endif
           </button>
-          <div id="dropdown2" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <div class="text-sm w-64 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-              <h1 class="px-4 py-2 border-b shadow-sm text-lg font-bold text-gray-700">Notifikasi</h1>
+          <div id="dropdown2" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-600">
+            <div class="text-sm w-64 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-600 dark:border-gray-600 dark:text-white">
+              <h1 class="px-4 py-2 border-b shadow-sm text-lg font-bold text-gray-600">Notifikasi</h1>
               @if ($notif)
               
               @foreach ($notif as $n)
               
-              <a href="\admin\penjadwalan" class="flex w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+              <a href="\admin\penjadwalan" class="flex w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:text-blue-600 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
                 <div>
-                  <i class="fa-solid fa-circle text-blue-700 pt-[0.4rem] pr-1 text-[0.5rem]"></i>
+                  <i class="fa-solid fa-circle text-blue-600 pt-[0.4rem] pr-1 text-[0.5rem]"></i>
                 </div>
                 <div>
                   <p>Jadwal <span class="font-semibold">{{$n->judul}}</span> untuk sapi <span class="font-semibold">{{$n->id_cow}}</span> masih belum dilakukan</p>
@@ -77,7 +77,7 @@
               @else
               <div class="grid grid-cols-1 grid-rows-3 w-full h-40 pt-10">
                 <div class="text-center">
-                  <i class="fa-solid fa-check text-4xl text-blue-700"></i>
+                  <i class="fa-solid fa-check text-4xl text-blue-600"></i>
                 </div>
                 <div class="text-center">
                   <p class="text-gray-900 text-sm">belum ada notifikasi untuk saat ini</p>
@@ -98,8 +98,8 @@
             </p>
           </button>
 
-          <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+          <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-600">
+            <ul class="py-1 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownDefault">
               <li>
                 <a href="@if(Auth::user()->type=='admin') /admin/profil @elseif(Auth::user()->type=='penjaga') /penjaga/profil @endif" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
               </li>
