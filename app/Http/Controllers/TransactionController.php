@@ -13,7 +13,7 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexAdminTransaksi()
+    public function indexAdminTransaction()
     {
         $transaksi = Transaction::latest()->paginate(10);
         return view('admin.adminTransaksi', [
@@ -26,7 +26,7 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createTransaksi()
+    public function createTransaction()
     {
         return view('admin.adminTransaksiTambah');
     }
@@ -37,7 +37,7 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeTransaksi(Request $request)
+    public function storeTransaction(Request $request)
     {
         $this->validate($request,[
             'jenis' => 'required|max:5',
@@ -73,7 +73,7 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function editTransaksi($id)
+    public function editTransaction($id)
     {
         $transaksi = Transaction::find($id);
         return view('admin.adminTransaksiEdit', ['transaksi' => $transaksi]);
@@ -86,7 +86,7 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function updateTransaksi(Request $request, $id)
+    public function updateTransaction(Request $request, $id)
     {
         $this->validate($request,[
             'jenis' => 'required|max:5',
@@ -112,7 +112,7 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function deleteTransaksi($id)
+    public function deleteTransaction($id)
     {
         Transaction::find($id)->delete();
         

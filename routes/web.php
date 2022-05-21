@@ -56,12 +56,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::post('/admin/profil/password/update', [UserController::class, 'updateAdminPassword']);
     Route::post('/admin/penjaga/password/update/{id}', [UserController::class, 'updatePenjagaPassword']);
     Route::get('/admin/penjadwalan', [ScheduleController::class, 'indexAdminSchedule'])->name('admin.penjadwalan');
-    Route::get('/admin/transaksi',[TransactionController::class, 'indexAdminTransaksi'])->name('admin.transaksi');
-    Route::get('/admin/transaksi/tambah',[TransactionController::class, 'createTransaksi'])->name('admin.transaksi.create');
-    Route::post('/admin/transaksi/store',[TransactionController::class, 'storeTransaksi']);
-    Route::get('/admin/transaksi/edit/{id}', [TransactionController::class,'editTransaksi'])->name('admin.transaksi.edit');
-    Route::patch('/admin/transaksi/update/{id}', [TransactionController::class, 'updateTransaksi']);
-    Route::delete('/admin/transaksi/delete/{id}', [TransactionController::class, 'deleteTransaksi'])->name('admin.transaksi.delete');
+    Route::get('/admin/transaksi',[TransactionController::class, 'indexAdminTransaction'])->name('admin.transaksi');
+    Route::get('/admin/transaksi/tambah',[TransactionController::class, 'createTransaction'])->name('admin.transaksi.create');
+    Route::post('/admin/transaksi/store',[TransactionController::class, 'storeTransaction']);
+    Route::get('/admin/transaksi/edit/{id}', [TransactionController::class,'editTransaction'])->name('admin.transaksi.edit');
+    Route::patch('/admin/transaksi/update/{id}', [TransactionController::class, 'updateTransaction']);
+    Route::delete('/admin/transaksi/delete/{id}', [TransactionController::class, 'deleteTransaction'])->name('admin.transaksi.delete');
 });
   
 /*------------------------------------------
