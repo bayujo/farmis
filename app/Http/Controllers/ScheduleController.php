@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
-use Illuminate\Support\Facades\Schema;
 
 class ScheduleController extends Controller
 {
@@ -63,9 +61,9 @@ class ScheduleController extends Controller
 
     public function editSchedule($id)
     {
-        $schedule = Schedule::find($id);
+        $penjadwalan = Schedule::find($id);
         $cow = DB::table('cow')->pluck('kode', 'id');
-        return view('penjaga.penjagaPenjadwalanEdit', ['schedule' => $schedule,'cow'=>$cow]);
+        return view('penjaga.penjagaPenjadwalanEdit', ['penjadwalan' => $penjadwalan,'cow'=>$cow]);
     }
 
     public function updateSchedule($id, Request $request)
@@ -77,12 +75,12 @@ class ScheduleController extends Controller
             'id_cow' => 'required|max:5',
         ]);
         
-        $schedule = Schedule::find($id);
-        $schedule->judul = $request->judul;
-        $schedule->tanggal = $request->tanggal;
-        $schedule->id_cow = $request->id_cow;
-        $schedule->id_users = $request->id_users;
-        $schedule->save();
+        $penjadwalan = Schedule::find($id);
+        $penjadwalan->judul = $request->judul;
+        $penjadwalan->tanggal = $request->tanggal;
+        $penjadwalan->id_cow = $request->id_cow;
+        $penjadwalan->id_users = $request->id_users;
+        $penjadwalan->save();
 
         Alert::toast('Berhasil mengedit data penjadwalan');
         return redirect('/penjaga/penjadwalan');

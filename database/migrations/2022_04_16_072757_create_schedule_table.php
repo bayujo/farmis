@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->string('judul', 30);
-            $table->date('start');
-            $table->date('end');
+            $table->date('tanggal');
             $table->bigInteger('id_users')->unsigned();
             $table->string('id_cow')->unsigned();
             $table->foreign('id_users')->references('id')->on('users');
