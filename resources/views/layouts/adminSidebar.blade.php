@@ -125,30 +125,24 @@
             class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 @if(Route::current()->getName() == 'admin.transaksi' or Route::current()->getName() == 'admin.transaksi.edit' or Route::current()->getName() == 'admin.transaksi.create') text-gray-800 @endif"
             href="/admin/transaksi"
           >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
             <span class="ml-4">Transaksi</span>
           </a>
         </li>
         <li class="relative px-6 py-3">
+          @if(Route::current()->getName() == 'admin.pemerahan')
+          <span
+                class="absolute inset-y-0 left-0 w-1 bg-indigo-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+          ></span>
+          @else
+          @endif
           <a
-            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
-            href="modals.html"
+            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 @if(Route::current()->getName() == 'admin.pemerahan') text-gray-800 @endif"
+            href="/admin/pemerahan"
           >
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-              ></path>
-            </svg>
-            <span class="ml-4">-</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            <span class="ml-4">Pemerahan</span>
           </a>
         </li>
         <li class="relative px-6 py-3">

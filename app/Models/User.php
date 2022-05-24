@@ -67,5 +67,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Schedule::class, 'id_users','id');
     }
+
+    public function milk()
+    {
+        return $this->hasMany(Milk::class, 'id_users', 'id');
+    }
     
 }

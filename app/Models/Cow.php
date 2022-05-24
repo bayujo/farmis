@@ -12,12 +12,19 @@ class Cow extends Model
     protected $fillable = [
         'kode', 'nama', 'bobot', 'tgl_lahir'
     ];
+
     public function age()
     {
         return Carbon::parse($this->attributes['tgl_lahir'])->age;
     }
+
     public function schedule()
     {
         return $this->hasMany(Schedule::class,'id_cow','id');
+    }
+
+    public function milk()
+    {
+        return $this->hasMany(Milk::class, 'id_cow', 'id');
     }
 }
