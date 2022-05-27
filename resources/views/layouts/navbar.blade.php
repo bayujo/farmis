@@ -52,22 +52,27 @@
         <!-- Notifications menu -->
         <li class="relative">
           <button id="dropdownDefault" data-dropdown-toggle="dropdown2" type="button">
-            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-bell hover:text-indigo-700"></i>
             @if ($notif)
             <i class="fa-solid fa-circle absolute text-red-500 text-[0.5rem] -mt-[0.1rem] -ml-[0.4rem]"></i>
             <i class="fa-solid fa-circle absolute text-red-500 text-[0.5rem] -mt-[0.1rem] -ml-[0.4rem] animate-ping"></i>
             @endif
           </button>
           <div id="dropdown2" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-600">
-            <div class="text-sm w-64 text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-600 dark:border-gray-600 dark:text-white">
-              <h1 class="px-4 py-2 border-b shadow-sm text-lg font-bold text-gray-600">Notifikasi</h1>
+            <div class="text-sm w-96 float-right text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-600 dark:border-gray-600 dark:text-white">
+              <div class="px-4 border-b py-2 flex flex-row justify-between items-center capitalize font-semibold text-sm">
+                <h5 class="text-xl">Notifikasi</h5>
+                <div class="bg-indigo-100 border border-indigo-200 text-indigo-500 text-xs rounded px-1">
+                  <strong>@if ($notif) {{ $notif[0]->count }} @else 0 @endif</strong>
+                </div>
+              </div>
               @if ($notif)
               
               @foreach ($notif as $n)
               
               <a href="\admin\penjadwalan" class="flex w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:text-blue-600 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
-                <div>
-                  <i class="fa-solid fa-circle text-blue-600 pt-[0.4rem] pr-1 text-[0.5rem]"></i>
+                <div class="pr-1">
+                  📅
                 </div>
                 <div>
                   <p>Jadwal <span class="font-semibold">{{$n->judul}}</span> untuk sapi <span class="font-semibold">{{$n->id_cow}}</span> masih belum dilakukan</p>
@@ -91,7 +96,7 @@
         @endif
         <!-- Profile menu -->
         <li class="relative">
-          <button id="dropdownDefault" data-dropdown-toggle="dropdown" type="button">
+          <button class="hover:text-indigo-700" id="dropdownDefault" data-dropdown-toggle="dropdown" type="button">
             <i class="fa-solid fa-user pr-4"></i>
             <p class="font-semibold text-sm inline-block">
               {{ Auth::user()->name }}
@@ -101,13 +106,13 @@
           <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-600">
             <ul class="py-1 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownDefault">
               <li>
-                <a href="@if(Auth::user()->type=='admin') /admin/profil @elseif(Auth::user()->type=='penjaga') /penjaga/profil @endif" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                <a href="@if(Auth::user()->type=='admin') /admin/profil @elseif(Auth::user()->type=='penjaga') /penjaga/profil @endif" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">🧑‍🌾Profile</a>
               </li>
               <li>
                 <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                  {{ __('Logout') }}
+                                  {{ __('🚪Logout') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

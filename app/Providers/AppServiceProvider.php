@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $notif = DB::select('select * from schedule where status = 0 and tanggal = CURRENT_DATE');
+        $notif = DB::select('select COUNT(*) over(), s.* from schedule s where status = 0 and tanggal = CURRENT_DATE');
         View::share('notif', $notif);
     }
 }
