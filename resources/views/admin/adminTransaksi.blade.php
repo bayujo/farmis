@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="flex h-screen">
+<div class="flex h-[97vh]">
   @include('layouts.adminSidebar')
   <div class="flex flex-col flex-1 w-full">
     @include('layouts.navbar')
@@ -57,7 +57,7 @@
                             <form class="m-0" method="POST" action="{{ route('admin.transaksi.delete', $t->id) }}">
                               @csrf
                               <input name="_method" type="hidden" value="DELETE">
-                              <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+                              <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline show_confirm" data-toggle="tooltip" title='Delete'>Hapus</button>
                             </form>
                           </td>
                       </tr>

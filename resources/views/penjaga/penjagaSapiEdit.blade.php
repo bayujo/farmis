@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="flex h-screen">
+<div class="flex h-[97vh]">
   @include('layouts.penjagaSidebar')
   <div class="flex flex-col flex-1 w-full">
     @include('layouts.navbar')
