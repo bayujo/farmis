@@ -42,7 +42,7 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
-    Route::get('/admin/home', [HomeController::class, 'dashboard'])->name('admin.home');
+    Route::get('/admin/home', [HomeController::class, 'dashboardAdmin'])->name('admin.home');
     Route::get('/admin/sapi', [CowController::class, 'indexAdminCow'])->name('admin.sapi');
     Route::get('/admin/penjaga', [UserController::class, 'indexAdminPenjaga'])->name('admin.penjaga');
     Route::get('/admin/penjaga/tambah', [UserController::class, 'createPenjaga'])->name('admin.penjaga.create');
@@ -73,7 +73,7 @@ All Manager Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:penjaga'])->group(function () {
   
-    Route::get('/penjaga/home', [HomeController::class, 'penjagaHome'])->name('penjaga.home');
+    Route::get('/penjaga/home', [HomeController::class, 'dashboardPenjaga'])->name('penjaga.home');
     Route::get('/penjaga/sapi', [CowController::class, 'indexPenjagaCow'])->name('penjaga.sapi');
     Route::get('/penjaga/sapi/tambah', [CowController::class, 'createCow'])->name('penjaga.sapi.create');
     Route::post('/penjaga/sapi/store', [CowController::class, 'storeCow']);
