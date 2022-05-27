@@ -16,6 +16,9 @@ mix.js('resources/js/app.js', 'public/js')
         require("tailwindcss"),
     ]);
 
-mix.browserSync('http://localhost:8000/');
-
 mix.disableNotifications()
+
+mix.browserSync({
+    proxy: 'http://localhost:8000/',
+    notify: false
+});
