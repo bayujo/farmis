@@ -17,9 +17,9 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            'jenis' => $this->faker->numberBetween(0, 1),
-            'nominal' => $this->faker->numberBetween(10000, 500000),
-            'tanggal' => $this->faker->dateTimeBetween('-1 years', 'now'),
+            'jenis' => $this->faker->numberBetween(0, 0),
+            'nominal' => $this->faker->numberBetween(300000, 350000),
+            'tanggal' => $this->faker->dateTimeInInterval('-1 month', '+1 month'),
             'keterangan' => $this->faker->word()
         ];
     }
