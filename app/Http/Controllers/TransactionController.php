@@ -40,8 +40,8 @@ class TransactionController extends Controller
     public function storeTransaction(Request $request)
     {
         $this->validate($request,[
-            'jenis' => 'required|max:5',
-            'nominal' => 'required|max:30',
+            'jenis' => 'required',
+            'nominal' => 'required|max:18',
             'tanggal' => 'required|before_or_equal:today',
             'keterangan' => 'required|max:255'
         ]);
@@ -89,8 +89,8 @@ class TransactionController extends Controller
     public function updateTransaction(Request $request, $id)
     {
         $this->validate($request,[
-            'jenis' => 'required|max:5',
-            'nominal' => 'required|max:30',
+            'jenis' => 'required',
+            'nominal' => 'required|max:18',
             'tanggal' => 'required|before_or_equal:today',
             'keterangan' => 'required|max:255'
         ]);
