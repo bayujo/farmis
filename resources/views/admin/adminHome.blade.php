@@ -299,20 +299,45 @@
       var pengeluaran = {{ Js::from($data2) }};
       var labels2 = {{ Js::from($labels2) }};
       var pemerahan =  {{ Js::from($data3) }};
-  
+      var forecast = {{ Js::from($forecast) }};
+      var forecast2 = {{ Js::from($forecast2) }};
+      var forecast3 = {{ Js::from($forecast3) }};
+
       const data = {
         labels: labels,
         datasets: [{
           label: 'Pemasukan',
-          backgroundColor: 'rgb(45, 212, 191)',
-          borderColor: 'rgb(45, 212, 191)',
+          backgroundColor: 'rgb(45, 212, 191, 0.1)',
+          borderColor: 'rgb(45, 212, 191, 1)',
           data: pemasukan,
+          tension: 0.4,
+          fill: true,
         },
         {
           label: 'Pengeluaran',
-          backgroundColor: 'rgb(241, 99, 99)',
-          borderColor: 'rgb(241, 99, 99)',
+          backgroundColor: 'rgb(241, 99, 99, 0.1)',
+          borderColor: 'rgb(241, 99, 99, 1)',
           data: pengeluaran,
+          tension: 0.4,
+          fill: true,
+        },
+        {
+          label: 'Prediksi Pemasukan',
+          backgroundColor: 'rgb(45, 212, 191, 0.1)',
+          borderColor: 'rgb(45, 212, 191, 0.5)',
+          data: forecast,
+          tension: 0.5,
+          fill: true,
+          borderDash: [10,5]
+        },
+        {
+          label: 'Prediksi Pengeluaran',
+          backgroundColor: 'rgb(241, 99, 99, 0.1)',
+          borderColor: 'rgb(241, 99, 99, 0.5)',
+          data: forecast2,
+          tension: 0.5,
+          fill: true,
+          borderDash: [10,5]
         }]
       };
 
@@ -320,9 +345,20 @@
         labels: labels2,
         datasets: [{
           label: 'Pemerahan',
-          backgroundColor: '	rgb(37, 99, 235)',
-          borderColor: '	rgb(37, 99, 235)',
+          backgroundColor: '	rgb(37, 99, 235, 0.1)',
+          borderColor: '	rgb(37, 99, 235, 1)',
           data: pemerahan,
+          tension: 0.4,
+          fill: true,
+        },
+        {
+          label: 'Prediksi Pemerahan',
+          backgroundColor: '	rgb(37, 99, 235, 0.1)',
+          borderColor: '	rgb(37, 99, 235, 0.5)',
+          data: forecast3,
+          tension: 0.5,
+          fill: true,
+          borderDash: [10,5]
         }]
       };
   
@@ -331,11 +367,8 @@
         data: data,
         options: {
           scales: {
-            x: {
-              type: 'time',
-              time: {
-
-              }
+            xAxes: {
+                type: 'time'
             }
           },
           responsive: true,
