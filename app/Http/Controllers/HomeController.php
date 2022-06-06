@@ -53,10 +53,10 @@ class HomeController extends Controller
         $newDate = $date->add($this->add_months($months, $date));
 
         // goes back 1 day from date, remove if you want same day of month
-        $newDate->sub(new DateInterval('P1D')); 
+        #$newDate->sub(new DateInterval('P1D')); 
 
         //formats final date to Y-m-d form
-        $dateReturned = $newDate->format('Y-m-01'); 
+        $dateReturned = $newDate->format('Y-m-d'); 
 
         return $dateReturned;
     }
@@ -161,13 +161,14 @@ class HomeController extends Controller
         $jumlahpemerahan = Milk::all()->count();
 
         $labels = $pemasukan->values();
+        $labels1 = $pengeluaran->values();
         $data1 = $pemasukan->keys();
         $data2 = $pengeluaran->keys();
         $labels2 = $pemerahan->values();
         $data3 = $pemerahan->keys();
 
         $exponentialSmoothing = $this->exponentialSmoothing($labels, $data1);
-        $exponentialSmoothing2 = $this->exponentialSmoothing($labels, $data2);
+        $exponentialSmoothing2 = $this->exponentialSmoothing($labels1, $data2);
         $exponentialSmoothing3 = $this->exponentialSmoothing($labels2, $data3);
 
         $forecast = $exponentialSmoothing['result'];
@@ -177,14 +178,16 @@ class HomeController extends Controller
         $mape = round($exponentialSmoothing['mape']);
 
         $nMonths = 1;
-        $final = $this->endCycle(end($labels), $nMonths);
-        $final2 = $this->endCycle(end($labels2), $nMonths);
+        $final = $this->endCycle($labels->last(), $nMonths);
+        $final1 = $this->endCycle($labels1->last(), $nMonths);
+        $final2 = $this->endCycle($labels2->last(), $nMonths);
         $labels->push($final);
+        $labels1->push($final1);
         $labels2->push($final2);
         /* $endlabels = end($labels);
         $endlabels->modify('+1 month'); */
-
-        return view('admin.adminHome', compact('labels', 'data1', 'data2', 'labels2', 'data3', 'jumlahsapi', 'jumlahtransaksi', 'jumlahpemerahan', 'totalpemasukan', 'totalpengeluaran', 'totalpemerahan', 'transaksirekap', 'pemerahanrekap', 'forecast', 'forecast2', 'forecast3'));
+        #dd($labels1);
+        return view('admin.adminHome', compact('labels', 'data1', 'data2', 'labels1', 'labels2', 'data3', 'jumlahsapi', 'jumlahtransaksi', 'jumlahpemerahan', 'totalpemasukan', 'totalpengeluaran', 'totalpemerahan', 'transaksirekap', 'pemerahanrekap', 'forecast', 'forecast2', 'forecast3'));
     }
 
     public function dashboardPenjaga()

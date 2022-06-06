@@ -295,6 +295,13 @@
     <script type="text/javascript">
   
       var labels =  {{ Js::from($labels) }};
+      var labels1 = {{ Js::from($labels1) }};
+      if (labels > labels1) {
+          longestlabels = labels
+      }
+      else {
+          longestlabels = labels1
+      }
       var pemasukan =  {{ Js::from($data1) }};
       var pengeluaran = {{ Js::from($data2) }};
       var labels2 = {{ Js::from($labels2) }};
@@ -304,7 +311,7 @@
       var forecast3 = {{ Js::from($forecast3) }};
 
       const data = {
-        labels: labels,
+        labels: longestlabels,
         datasets: [{
           label: 'Pemasukan',
           backgroundColor: 'rgb(45, 212, 191, 0.1)',
