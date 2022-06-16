@@ -18,11 +18,22 @@
     <script src="https://unpkg.com/flowbite@1.4.1/dist/datepicker.js"></script>
     <script src="https://kit.fontawesome.com/f6cf9a2499.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
     $(function() {
         $('.something').change(function() {
             var status = $(this).prop('checked') == true ? 1 : 0; 
             var id = $(this).data('id'); 
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+            });
+            Toast.fire({
+            type: 'success',
+            title: 'Berhasil mengubah status'
+});
             
             $.ajax({
                 type: "GET",
@@ -41,15 +52,16 @@
            var form =  $(this).closest("form");
            var name = $(this).data("name");
            event.preventDefault();
-           swal({
-               title: `Apakah anda yakin ingin menghapus data ini?`,
-               text: "Data akan hilang selamanya setelah dihapus",
-               icon: "",
-               buttons: ["Cancel", "Hapus"],
-               dangerMode: "true"
+           Swal.fire({
+            title: 'Apakah anda yakin ingin menghapus data ini?',
+            text: "Data akan hilang selamanya setelah dihapus",
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Hapus'
            })
            .then((willDelete) => {
-             if (willDelete) {
+             if (willDelete.isConfirmed) {
                form.submit();
              }
            });
