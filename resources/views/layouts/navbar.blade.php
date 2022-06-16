@@ -31,6 +31,15 @@
           <li>
             <a href="/admin/penjaga" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penjaga</a>
           </li>
+          <li>
+            <a href="/admin/penjadwalan" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penjadwalan</a>
+          </li>
+          <li>
+            <a href="/admin/transaksi" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Transaksi</a>
+          </li>
+          <li>
+            <a href="/admin/pemerahan" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemerahan</a>
+          </li>
           @elseif (Auth::user()->type=='penjaga')
           <li>
             <a href="/penjaga/home" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
@@ -40,6 +49,9 @@
           </li>
           <li>
             <a href="/penjaga/penjadwalan" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Penjadwalan</a>
+          </li>
+          <li>
+            <a href="/penjaga/pemerahan" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemerahan</a>
           </li>
           @endif
         </ul>
