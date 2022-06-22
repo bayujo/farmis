@@ -47,7 +47,7 @@ class CowController extends Controller
     public function storeCow(Request $request)
     {
         $this->validate($request,[
-            'kode' => 'required|max:5',
+            'kode' => 'required|max:5|unique:cow',
             'nama' => 'required|max:30',
             'bobot' => 'required|integer|max:2000',
             'tgl_lahir' => 'required|before_or_equal:today',
@@ -96,7 +96,7 @@ class CowController extends Controller
     public function updateCow($id, Request $request)
     {
         $this->validate($request,[
-            'kode' => 'required|max:5',
+            'kode' => 'required|max:5|unique:cow',
             'nama' => 'required|max:30',
             'bobot' => 'required|integer|max:2000',
             'tgl_lahir' => 'required|before_or_equal:today',
