@@ -181,10 +181,10 @@
                                 {{$p->txn_month}}
                             </td>
                             <td class="px-6 py-2">
-                                {{$p->pemasukan}}
+                                {{number_format($p->pemasukan)}}
                             </td>
                             <td class="px-6 py-2">
-                                {{$p->pengeluaran}}
+                                {{number_format($p->pengeluaran)}}
                             </td>
                         </tr>
                         @endforeach
